@@ -3,7 +3,7 @@ services:
   - docker 
 
 before_install:
-  - docker build -f sharmad6/docker-run-test Dockerfile.dev .
+  - docker build -t sharmad6/docker-run-test -f Dockerfile.dev .
 
 script: 
   - docker run sharmad6/docker-run-test npm run test -- --coverage
