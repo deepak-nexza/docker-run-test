@@ -8,4 +8,4 @@ services:
         - "4012:3000"
       volumes:  
         - /usr/app/node_modules
-        - .:/usr/app
+        - .:/usr/app 
