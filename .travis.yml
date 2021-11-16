@@ -1,22 +1,21 @@
 sudo: required
-language: generic 
+language: generic
 
-services: 
-  - docker 
+services:
+  - docker
 
 before_install:
-  - docker build -t sharmad6/docker-run-test -f Dockerfile.dev .
+  - docker build -t dsharma6/docker-run-test -f Dockerfile.dev .
 
 
 deploy:
   provider: elasticbeanstalk
-  region: "us-east-2"
-  app: "Docker"
-  env: "Docker-env"
-  bucket_name: "elasticbeanstalk-us-east-2-263390996180"
-  bucket_path: "docker"
-  on: 
+  region: 'us-east-2'
+  app: 'Docker'
+  env: 'Docker-env'
+  bucket_name: 'elasticbeanstalk-us-east-2-263390996180'
+  bucket_path: 'docker'
+  on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+  secret_access_key: $AWS_SECRET_KEY
