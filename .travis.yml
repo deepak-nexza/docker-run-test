@@ -7,5 +7,3 @@ services:
 before_install:
   - docker build -t sharmad6/docker-run-test -f Dockerfile.dev .
 
-script: 
-  - docker run -e CI=true sharmad6/docker-run-test npm run test -- --coverage
