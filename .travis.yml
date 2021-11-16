@@ -9,3 +9,16 @@ before_install:
 
 script: 
   - docker run -e CI=true sharmad6/docker-run-test sudo npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "Docker"
+  env: "docker-env"
+  bucket_name: "elastickbeanstackbuckertpath"
+  bucket_path: "docker"
+  on: 
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
